@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Temperature Converter</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      input[type="number"] {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      select {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body bgcolor="pink">
+    <h1>Temperature Converter</h1>
+    <p>Enter a temperature value and select its unit:</p>
+    <input type="number" id="tempValue" required>
+    <select id="tempUnit">
+      <option value="kelvin">Kelvin</option>
+      <option value="celsius">Celsius</option>
+      <option value="fahrenheit">Fahrenheit</option>
+    </select>
+    <button onclick="convertTemperature()">Convert</button>
+    <div class="result" id="result"></div>
+
+    <script>
+      function convertTemperature() {
+        const tempValue = document.getElementById('tempValue').value;
+        const tempUnit = document.getElementById('tempUnit').value;
+
+        let kelvin, celsius, fahrenheit;
+
+        switch (tempUnit) {
+          case 'kelvin':
+            kelvin = parseFloat(tempValue);
+            celsius = kelvin - 273.15;
+            fahrenheit = celsius * 1.8 + 32;
+            break;
+          case 'celsius':
+            celsius = parseFloat(tempValue);
+            kelvin = celsius + 273.15;
+            fahrenheit = celsius * 1.8 + 32;
+            break;
+          case 'fahrenheit':
+            fahrenheit = parseFloat(tempValue);
+            celsius = (fahrenheit - 32) / 1.8;
+            kelvin = celsius + 273.15;
+            break;
+          default:
+            break;
+        }
+
+        document.getElementById('result').innerHTML = `
+          ${kelvin.toFixed(2)} Kelvin<br>
+          ${celsius.toFixed(2)} Celsius<br>
+          ${fahrenheit.toFixed(2)} Fahrenheit
+        `;
+      }
+    </script>
+  </body>
+</html>
+

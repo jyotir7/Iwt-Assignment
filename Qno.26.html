@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timer Example</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+
+		h1 {
+			margin-top: 50px;
+		}
+
+		#timer {
+			font-size: 80px;
+			margin-top: 50px;
+		}
+
+		button {
+			margin-top: 50px;
+			padding: 10px 20px;
+			font-size: 16px;
+			border-radius: 5px;
+			border: none;
+			background-color: #4CAF50;
+			color: white;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #3e8e41;
+		}
+
+		button:active {
+			background-color: #4CAF50;
+		}
+	</style>
+</head>
+<body bgcolor="cyan">
+	<h1>Timer Example</h1>
+	<div id="timer">00:00:00</div>
+	<button id="startBtn">Start</button>
+	<button id="stopBtn">Stop</button>
+
+	<script>
+		let timer = null;
+		let seconds = 0;
+		let minutes = 0;
+		let hours = 0;
+
+		function startTimer() {
+			timer = setInterval(() => {
+				seconds++;
+				if (seconds >= 60) {
+					seconds = 0;
+					minutes++;
+				}
+				if (minutes >= 60) {
+					minutes = 0;
+					hours++;
+				}
+				updateTimer();
+			}, 1000);
+		}
+
+		function stopTimer() {
+			clearInterval(timer);
+		}
+
+		function updateTimer() {
+			const timerDisplay = document.getElementById('timer');
+			timerDisplay.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+		}
+
+		function pad(num) {
+			return num.toString().padStart(2, '0');
+		}
+
+		document.getElementById('startBtn').addEventListener('click', startTimer);
+		document.getElementById('stopBtn').addEventListener('click', stopTimer);
+	</script>
+</body>
+</html>

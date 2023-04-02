@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event Cards</title>
+	<style>
+		/* Card layout styles */
+		.card {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-color: #f9f9f9;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			padding: 20px;
+			margin: 20px;
+			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+		}
+		.card img {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 10px;
+		}
+		.card h2 {
+			margin: 0;
+			font-size: 24px;
+			text-align: center;
+		}
+		.card p {
+			margin: 0;
+			font-size: 16px;
+			text-align: justify;
+		}
+		.card span {
+			font-size: 14px;
+			color: #777;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="cards-container"></div>
+
+	<script>
+		// Event details in a JavaScript object
+		const events = [
+			{
+				title: "Music Concert",
+				date: "2023-04-15",
+				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+				imageUrl: "https://source.unsplash.com/random/300x200"
+			},
+			{
+				title: "Art Exhibition",
+				date: "2023-05-20",
+				description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+				imageUrl: "https://source.unsplash.com/random/300x200"
+			},
+			{
+				title: "Food Festival",
+				date: "2023-06-25",
+				description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+				imageUrl: "https://source.unsplash.com/random/300x200"
+			}
+		];
+
+		// Loop through events array and generate cards for each event
+		const cardsContainer = document.getElementById("cards-container");
+		events.forEach(event => {
+			const card = document.createElement("div");
+			card.classList.add("card");
+
+			const image = document.createElement("img");
+			image.src = event.imageUrl;
+			card.appendChild(image);
+
+			const title = document.createElement("h2");
+			title.innerText = event.title;
+			card.appendChild(title);
+
+			const date = document.createElement("span");
+			date.innerText = new Date(event.date).toDateString();
+			card.appendChild(date);
+
+			const description = document.createElement("p");
+			description.innerText = event.description;
+			card.appendChild(description);
+
+			cardsContainer.appendChild(card);
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+h1	{
+    color:rgb(255, 179, 179);
+    text-align:center;
+    text-decoration-line:overline underline;
+    text-decoration-color: rgb(214, 247, 165);
+    text-decoration-style:wavy;
+    text-decoration-thickness:3px;
+    
+    text-transform:capitalize;
+    font-size:100px;
+    text-shadow: -10px -20px 20px rgb(228, 217, 244);
+    }
+p	{
+    text-align:justify;
+    line-height:2;
+    font-size:30px;
+    text-indent:80px;
+    letter-spacing:2px;
+    word-spacing: 10px;
+    font-family:sans-serif;
+    font-weight:900;
+    font-style:italic;
+    font-variant:small-caps;
+    background-color:rgba(255, 188, 192, 0.5);
+    }
+body {
+    background-color:rgb(127, 248, 179);
+    background-image:linear-gradient(to right bottom,rgba(246, 229, 232, 0.5) 60%,rgba(194, 200, 194, 0.5) 60%), url('css/images/36.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    }
+.highlight 
+    {
+    background-color:black;
+    color:rgb(201, 246, 143);
+    }

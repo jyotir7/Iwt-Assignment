@@ -1,0 +1,30 @@
+header {
+    background-color: #6ee86e;
+    border: 1px solid #333;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .col {
+    background-color: #7ea0da;
+    border: 1px solid #333;
+    float: left;
+    width: 48%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  
+  .col:last-child {
+    float: right;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
